@@ -1,11 +1,29 @@
 import "./ItemModal.css";
+import "../ModalWithForm/ModalWithForm.css";
+import close from "../../assets/whiteclose.png";
+import { useRef } from "react";
 
-function ItemModal({ activeModal, onClose, card }) {
+function ItemModal({ activeModal, onClose, name, card }) {
+  const ref = useRef();
+
+  const handleOverlay = (e) => {
+    if (e.target === e.currentTarget) {
+      onClose();
+    }
+  };
+
   return (
-    <div className={`modal ${activeModal === "preview" && "modal_opened"}`}>
-      <div className="modal__content modal__content_type_image">
+    <div
+      className={`modal ${activeModal === "preview" && "modal_opened"}`}
+      onClick={handleOverlay}
+    >
+      <div className={`modal__content modal__content_type_${name}`} ref={ref}>
         <button onClick={onClose} className="modal__close">
-          CLOSE
+          <img
+            src={close}
+            alt="X button to close image"
+            className="modal__close-btn"
+          />
         </button>
         <img src={card.link} alt={card.name} className="modal__image" />
         <div className="modal__footer">

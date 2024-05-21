@@ -22,7 +22,7 @@ export const weatherOptions = [
   {
     day: true,
     condition: "storm",
-    url: new URL("../assets/day/stormy.png", import.meta.url).href,
+    url: new URL("../assets/day/storm.png", import.meta.url).href,
   },
   {
     day: true,
@@ -57,7 +57,7 @@ export const weatherOptions = [
   {
     day: false,
     condition: "storm",
-    url: new URL("../assets/night/stormy.png", import.meta.url).href,
+    url: new URL("../assets/night/storm.png", import.meta.url).href,
   },
   {
     day: false,

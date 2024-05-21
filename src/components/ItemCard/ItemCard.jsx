@@ -4,6 +4,7 @@ function ItemCard({ item, onCardClick }) {
   const handleCardClick = () => {
     onCardClick(item);
   };
+
   return (
     <li className="item">
       <h2 className="item__name">{item.name}</h2>

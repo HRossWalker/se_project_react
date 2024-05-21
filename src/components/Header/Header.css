@@ -12,6 +12,8 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
+  border-width: 1px;
+  border: #000;
   object-fit: cover;
   background-position: center;
 }
@@ -21,7 +23,7 @@
   line-height: 24px;
   font-size: 20px;
   font-weight: 700;
-  /* font-family: Cabninet Grotesk; */
+  font-family: "Cabinet Grotesk", Arial, Helvetica, sans-serif;
 }
 
 .header__date-and_location {
@@ -29,7 +31,7 @@
   line-height: 24px;
   font-size: 20px;
   font-weight: 700;
-  /* font-family: Cabninet Grotesk; */
+  font-family: "Cabinet Grotesk", Arial, Helvetica, sans-serif;
 }
 
 .header__username {
@@ -37,7 +39,7 @@
   line-height: 25px;
   font-size: 20px;
   font-weight: 700;
-  /* font-family: Cabninet Grotesk; */
+  font-family: "Cabinet Grotesk", Arial, Helvetica, sans-serif;
 }
 
 .header__user-container {

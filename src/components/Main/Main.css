@@ -1,3 +1,7 @@
+.main {
+  flex-grow: 1;
+}
+
 .cards {
   width: 100%;
 }
@@ -12,4 +16,8 @@
 }
 
 .cards__text {
+  font-family: "Cabinet Grotesk", Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 25px;
 }
