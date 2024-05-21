@@ -9,6 +9,7 @@ function ModalWithForm({
   name,
   activeModal,
   onClose,
+  isOpen,
 }) {
   const ref = useRef();
 
@@ -20,7 +21,7 @@ function ModalWithForm({
 
   return (
     <div
-      className={`modal ${activeModal === "add-garment" && "modal_opened"}`}
+      className={`modal ${activeModal === isOpen && "modal_opened"}`}
       onClick={handleOverlay}
     >
       <div className={`modal__content modal__content_type_${name}`} ref={ref}>

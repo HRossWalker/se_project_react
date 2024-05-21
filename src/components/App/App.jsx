@@ -62,6 +62,7 @@ function App() {
         buttonText="Add garment"
         activeModal={activeModal}
         onClose={handleCloseModal}
+        isOpen="add-garment"
       >
         <label htmlFor="name" className="modal__label">
           Name{" "}
@@ -76,7 +77,7 @@ function App() {
           Image{" "}
           <input
             type="url"
-            id="image-url"
+            id="imageUrl"
             placeholder="Image Url"
             className="modal__input"
           />{" "}
@@ -84,21 +85,36 @@ function App() {
         <fieldset className="modal__radio-buttons">
           <legend className="modal__legend">Select the Weather Type:</legend>
           <label htmlFor="hot" className="modal__label modal__label_type_radio">
-            <input id="hot" type="radio" className="modal__radio-input" />
+            <input
+              id="hot"
+              name="radiobutton"
+              type="radio"
+              className="modal__radio-input"
+            />
             Hot
           </label>
           <label
             htmlFor="warm"
             className="modal__label modal__label_type_radio"
           >
-            <input id="warm" type="radio" className="modal__radio-input" />
+            <input
+              id="warm"
+              name="radiobutton"
+              type="radio"
+              className="modal__radio-input"
+            />
             Warm
           </label>
           <label
             htmlFor="cold"
             className="modal__label modal__label_type_radio"
           >
-            <input id="cold" type="radio" className="modal__radio-input" />
+            <input
+              id="cold"
+              name="radiobutton"
+              type="radio"
+              className="modal__radio-input"
+            />
             Cold
           </label>
         </fieldset>
@@ -108,6 +124,7 @@ function App() {
         name="image"
         card={selectedCard}
         onClose={handleCloseModal}
+        isOpen="preview"
       ></ItemModal>
     </div>
   );

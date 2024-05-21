@@ -130,5 +130,7 @@ export const coordinates = {
 
 export const APIkey = "7f88a124dbce550dc22ecda6487790dc";
 
+export const currentYear = new Date().getFullYear();
+
 // latitude: 32.8292155,
 //   longitude: -117.103643,
