@@ -60,9 +60,8 @@ function App() {
         name="form"
         title="New garment"
         buttonText="Add garment"
-        activeModal={activeModal}
         onClose={handleCloseModal}
-        isOpen="add-garment"
+        isOpen={activeModal === "add-garment"}
       >
         <label htmlFor="name" className="modal__label">
           Name{" "}
@@ -120,11 +119,10 @@ function App() {
         </fieldset>
       </ModalWithForm>
       <ItemModal
-        activeModal={activeModal}
         name="image"
         card={selectedCard}
         onClose={handleCloseModal}
-        isOpen="preview"
+        isOpen={activeModal === "preview"}
       ></ItemModal>
     </div>
   );

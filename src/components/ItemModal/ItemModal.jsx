@@ -3,7 +3,7 @@ import "../ModalWithForm/ModalWithForm.css";
 import close from "../../assets/whiteclose.png";
 import { useRef } from "react";
 
-function ItemModal({ activeModal, onClose, isOpen, name, card }) {
+function ItemModal({ onClose, isOpen, name, card }) {
   const ref = useRef();
 
   const handleOverlay = (e) => {
@@ -14,7 +14,7 @@ function ItemModal({ activeModal, onClose, isOpen, name, card }) {
 
   return (
     <div
-      className={`modal ${activeModal === isOpen && "modal_opened"}`}
+      className={`modal ${isOpen && "modal_opened"}`}
       onClick={handleOverlay}
     >
       <div className={`modal__content modal__content_type_${name}`} ref={ref}>
