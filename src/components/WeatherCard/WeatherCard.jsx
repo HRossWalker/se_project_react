@@ -1,5 +1,6 @@
 import { weatherOptions, defaultWeatherOptions } from "../../utils/constants";
 import "./WeatherCard.css";
+import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext.js";
 
 function WeatherCard({ weatherDataForCard }) {
   const filteredOptions = weatherOptions.filter((option) => {
@@ -32,3 +33,17 @@ function WeatherCard({ weatherDataForCard }) {
 }
 
 export default WeatherCard;
+
+// const weatherOptions = [
+//   { url: require("../images/day/sunny.svg").default, day: true, },
+//   { url: require("../images/day/cloud.svg").default, day: true, },
+//   { url: require("../images/day/cloudy.svg").default, day: true, },
+//   { url: require("../images/day/moon.svg").default, day: false, }
+// ];
+
+// const WeatherCard = ({ day=true, type="sunny", weatherTemp = 0 }) => {
+
+//   const imageSrc = weatherOptions.filter((i) => {
+//     return i.day === day && i.type === type;
+//   });
+// };

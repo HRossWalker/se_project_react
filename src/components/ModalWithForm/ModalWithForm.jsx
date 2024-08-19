@@ -2,7 +2,15 @@ import "./ModalWithForm.css";
 import close from "../../assets/close.png";
 import { useRef } from "react";
 
-function ModalWithForm({ children, buttonText, title, name, onClose, isOpen }) {
+function ModalWithForm({
+  children,
+  onSubmit,
+  buttonText,
+  title,
+  name,
+  onClose,
+  isOpen,
+}) {
   const ref = useRef();
 
   const handleOverlay = (e) => {
@@ -25,7 +33,7 @@ function ModalWithForm({ children, buttonText, title, name, onClose, isOpen }) {
             className="modal__close-btn"
           ></img>
         </button>
-        <form action="" className="modal__form">
+        <form action="" onSubmit={onSubmit} className="modal__form">
           {children}
           <button type="submit" className="modal__submit" disabled>
             {buttonText}
