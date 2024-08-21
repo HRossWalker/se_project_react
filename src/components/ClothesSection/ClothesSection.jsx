@@ -1,4 +1,4 @@
-import "./ClothesSelection.css";
+import "./ClothesSection.css";
 import ItemCard from "../ItemCard/ItemCard";
 
 function ClothesSelection({ weatherData, clothingItems, onClick, onAddClick }) {

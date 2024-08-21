@@ -1,6 +1,6 @@
 import "./Profile.css";
 import SideBar from "../SideBar/SideBar";
-import ClothesSelection from "../ClothesSection/ClothesSelection";
+import ClothesSection from "../ClothesSection/ClothesSection";
 
 const Profile = ({
   weatherClothesData,
@@ -16,7 +16,7 @@ const Profile = ({
       <SideBar currentAvatar={currentAvatar} username={username} />
     </section>
     <section className="profile__clothes">
-      <ClothesSelection
+      <ClothesSection
         weatherClothes={weatherClothesData}
         clothingItems={clothes}
         onAddClick={onAddNewClick}
