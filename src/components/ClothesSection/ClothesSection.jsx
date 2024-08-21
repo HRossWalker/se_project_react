@@ -1,7 +1,7 @@
 import "./ClothesSection.css";
 import ItemCard from "../ItemCard/ItemCard";
 
-function ClothesSelection({ weatherData, clothingItems, onClick, onAddClick }) {
+function ClothesSection({ weatherData, clothingItems, onClick, onAddClick }) {
   return (
     <div className="clothes__section">
       <div className="clothes__section-header">
@@ -19,4 +19,4 @@ function ClothesSelection({ weatherData, clothingItems, onClick, onAddClick }) {
   );
 }
 
-export default ClothesSelection;
+export default ClothesSection;
