@@ -5,24 +5,9 @@
   /* justify-content: space-around; */
 }
 
-.profile__avatar {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  max-height: 56px;
-  width: 229px;
-  display: flex;
-  align-items: center;
-  padding: 0 20px;
-}
-
-.profile__clothingItems {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  align-self: center;
-  color: black;
+.profile__clothes {
+  max-width: 1015px;
+  width: 100%;
 }
 
 .profile__clothingItems_header {

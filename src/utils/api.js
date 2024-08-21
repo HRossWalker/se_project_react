@@ -20,8 +20,8 @@ const addItem = ({ name, weather, imageUrl }) => {
     },
     body: JSON.stringify({
       name,
-      weather,
       imageUrl,
+      weather,
     }),
   }).then(handleServerResponse);
 };

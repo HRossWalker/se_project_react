@@ -1,0 +1,65 @@
+.delete__modal {
+  max-width: 670px;
+  max-height: 280px;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  visibility: hidden;
+  position: relative;
+}
+
+.delete__modal_opened {
+  visibility: visible;
+}
+
+.delete__modal-closebtn {
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: 7px;
+  right: 15px;
+  background-color: #fff;
+  color: #0000003d;
+  border: none;
+}
+
+.delete__modal-paragraph {
+  font-family: "Cabinet Grotesk", Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  color: #000;
+  margin: 0;
+}
+
+.delete__button {
+  font-family: "Cabinet Grotesk", Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  color: #ff4d00;
+  outline: none;
+  border: none;
+  background-color: #fff;
+  margin: 40px auto 24px;
+}
+
+.delete__button-cancel {
+  font-family: "Cabinet Grotesk", Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  color: #000;
+  outline: none;
+  border: none;
+  background-color: #fff;
+}

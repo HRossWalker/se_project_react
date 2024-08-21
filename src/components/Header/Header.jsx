@@ -3,10 +3,9 @@ import "./Header.css";
 import logo from "../../assets/logo.svg";
 import defaultAvatar from "../../assets/avatar.png";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
+import { currentDate } from "../../utils/constants";
 
-const Header = ({ onCreateModal, weatherData }) => {
-  const currentDate = "1";
-  const username = "Bobbert";
+const Header = ({ handleAddClick, weatherData, username }) => {
   const currentAvatar = "";
 
   return (
@@ -21,7 +20,7 @@ const Header = ({ onCreateModal, weatherData }) => {
       </div>
       <ToggleSwitch />
       <div className="header__nav">
-        <button onClick={onCreateModal} className="header__add-clothes-btn">
+        <button onClick={handleAddClick} className="header__add-clothes-btn">
           + Add Clothes
         </button>
         <Link to="/profile" className="header__link">

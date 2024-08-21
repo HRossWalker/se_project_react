@@ -1,6 +1,7 @@
 import "./ItemCard.css";
+// import DeleteModal from "../DeleteModal/DeleteModal";
 
-function ItemCard({ key, item, onCardClick }) {
+function ItemCard({ item, onCardClick }) {
   const handleCardClick = () => {
     onCardClick(item);
   };
@@ -9,9 +10,9 @@ function ItemCard({ key, item, onCardClick }) {
     <li className="item">
       <h2 className="item__name">{item.name}</h2>
       <img
-        onCardClick={handleCardClick}
+        onClick={handleCardClick}
         className="item__image"
-        id={key}
+        id={item._id}
         src={item.imageUrl}
         alt={item.name}
       />

@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useContext } from "react";
 
 import WeatherCard from "../WeatherCard/WeatherCard";
 import ItemCard from "../ItemCard/ItemCard.jsx";
@@ -8,12 +8,11 @@ import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnit
 
 function Main({ weatherData, items, onCardClick }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
-  console.log(currentTemperatureUnit);
-  const temp = weatherData?.temperature?.[currentTemperatureUnit] || 999;
+  const temp = weatherData?.temp?.[currentTemperatureUnit] || 999;
   const weatherType = useMemo(() => {
     if (temp >= 86) {
       return "hot";
-    } else if (temp > 66 && weatherData < 86) {
+    } else if (temp > 66 && temp < 86) {
       return "warm";
     } else if (temp >= 66) {
       return "cold";
@@ -21,20 +20,26 @@ function Main({ weatherData, items, onCardClick }) {
   }, [weatherData]);
 
   const filteredCards = items.filter((item) => {
-    return item.weather.toLowerCase() === weatherType;
+    return item.weather?.toLowerCase() === weatherType;
   });
 
   return (
     <main className="main">
-      <WeatherCard weatherDataForCard={temp} />
+      <WeatherCard weatherDataForCard={weatherData} />
       <section className="cards">
         <p className="cards__text">
-          Today is {Math.round(temp)} &deg; F / You may want to wear:
+          Today is {Math.round(weatherData?.temp?.[currentTemperatureUnit])}{" "}
+          &deg; {currentTemperatureUnit} / You may want to wear:
         </p>
         <ul className="cards__list">
           {filteredCards.map((item) => {
             return (
-              <ItemCard key={item._id} item={item} onCardClick={onCardClick} />
+              <ItemCard
+                key={item._id}
+                id={item._id}
+                item={item}
+                onCardClick={onCardClick}
+              />
             );
           })}
         </ul>

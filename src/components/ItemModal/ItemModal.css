@@ -3,6 +3,10 @@
   min-height: 610px;
 }
 
+.modal__content {
+  position: relative;
+}
+
 .modal__footer {
   font-family: "Cabinet Grotesk", Arial, Helvetica, sans-serif;
   font-weight: 700;
@@ -24,4 +28,17 @@
 .modal__image {
   width: 100%;
   background-image: center;
+}
+
+.modal__image-deletebtn {
+  position: absolute;
+  color: #ff4d00;
+  font-family: "Cabinet Grotesk", Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  border: none;
+  right: 32px;
+  bottom: 68px;
+  background-color: transparent;
 }
