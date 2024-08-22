@@ -3,7 +3,13 @@ import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "../ModalWithForm/ModalWithForm.css";
 import "./AddItemModal.css";
 
-const AddItemModal = ({ onClose, onAddItem, isOpen }) => {
+const AddItemModal = ({
+  onClose,
+  onAddItem,
+  isOpen,
+  isLoading,
+  handleIsLoadingToggle,
+}) => {
   const [name, setName] = useState("");
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -21,24 +27,19 @@ const AddItemModal = ({ onClose, onAddItem, isOpen }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    handleIsLoadingToggle();
     onAddItem({ name, imageUrl, weather });
-    onClose();
-  };
-
-  const handleOverlay = (e) => {
-    if (e.target === e.currentTarget) {
-      onClose();
-    }
   };
 
   return (
     <ModalWithForm
       name="form"
       title="New garment"
-      buttonText="Add garment"
+      buttonText={isLoading ? "Saving..." : "Add garment"}
       onClose={onClose}
       isOpen={isOpen}
       onSubmit={handleSubmit}
+      handleIsLoadingToggle={handleIsLoadingToggle}
     >
       <label htmlFor="name" className="modal__label">
         Name{" "}
@@ -103,68 +104,3 @@ const AddItemModal = ({ onClose, onAddItem, isOpen }) => {
 };
 
 export default AddItemModal;
-
-// {
-//   <div className={`modal ${isOpen && "modal_opened"}`} onClick={handleOverlay}>
-//     <label htmlFor="name" className="modal__label">
-//       Name{" "}
-//       <input
-//         type="text"
-//         name="name"
-//         placeholder="Name"
-//         minLength="1"
-//         maxLength="30"
-//         value={name}
-//         onChange={handleNameChange}
-//         className="modal__input"
-//       />{" "}
-//     </label>
-//     <label htmlFor="imageUrl" className="modal__label">
-//       Image{" "}
-//       <input
-//         type="url"
-//         name="imageUrl"
-//         id="imageUrl"
-//         placeholder="Image Url"
-//         className="modal__input"
-//         minLength="1"
-//         maxLength="30"
-//         value={imageUrl}
-//         onChange={handleUrlChange}
-//       />{" "}
-//     </label>
-//     <fieldset className="modal__radio-buttons">
-//       <p>Select the weather type:</p>
-//       <label htmlFor="hot" className="modal__label modal__label_type_radio">
-//         <input
-//           type="radio"
-//           name="radiobtn"
-//           id="hot"
-//           value="hot"
-//           onChange={handleWeatherChange}
-//         />
-//         Hot
-//       </label>
-//       <label htmlFor="warm" className="modal__label modal__label_type_radio">
-//         <input
-//           type="radio"
-//           name="radiobtn"
-//           id="warm"
-//           value="warm"
-//           onChange={handleWeatherChange}
-//         />
-//         Warm
-//       </label>
-//       <label htmlFor="cold" className="modal__label modal__label_type_radio">
-//         <input
-//           type="radio"
-//           name="radiobtn"
-//           id="cold"
-//           value="cold"
-//           onChange={handleWeatherChange}
-//         />
-//         Cold
-//       </label>
-//     </fieldset>
-//   </div>;
-// }

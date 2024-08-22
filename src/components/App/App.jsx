@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext.js";
@@ -14,6 +14,8 @@ import api from "../../utils/api.js";
 import DeleteModal from "../DeleteModal/DeleteModal.jsx";
 import currentAvatar from "../../assets/avatar.png";
 
+// loved the feedback and suggestions, I implimented the isLoading and will work on the other suggestions in the next sprint. I'm pretty behind and need to push forward. Thank you!
+
 function App() {
   const [weatherData, setWeatherData] = useState({});
   const [activeModal, setActiveModal] = useState("");
@@ -21,6 +23,7 @@ function App() {
   const [clothingItems, setClothingItems] = useState([]);
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [username, setUsername] = useState("Ross Walker");
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     api
@@ -31,9 +34,12 @@ function App() {
       .catch(console.error);
   }, []);
 
-  // console.log(`******${clothingItems}`);
   const handleDeleteModal = () => {
     setActiveModal("delete");
+  };
+
+  const handleIsLoadingToggle = (isLoading) => {
+    isLoading === false ? setIsLoading(true) : setIsLoading(false);
   };
 
   const handleCardClick = (card) => {
@@ -50,6 +56,7 @@ function App() {
       .addItem(item)
       .then((res) => {
         setClothingItems([{ ...item, ...res }, ...clothingItems]);
+        handleIsLoadingToggle();
         handleCloseModal();
       })
       .catch(console.error);
@@ -60,6 +67,7 @@ function App() {
       .removeItem(card._id)
       .then(() => {
         setClothingItems((cards) => cards.filter((c) => c._id !== card._id));
+        handleIsLoadingToggle();
         handleCloseModal();
       })
       .catch(console.error);
@@ -144,6 +152,8 @@ function App() {
             onClose={handleCloseModal}
             onAddItem={handleAddItemSubmit}
             isOpen={activeModal === "create"}
+            isLoading={isLoading}
+            handleIsLoadingToggle={handleIsLoadingToggle}
           />
         )}
         {activeModal === "preview" && (
@@ -152,6 +162,7 @@ function App() {
             onClose={handleCloseModal}
             openDeleteModal={handleDeleteModal}
             isOpen={activeModal === "preview"}
+            isLoading={isLoading}
           />
         )}
 
@@ -161,6 +172,8 @@ function App() {
             onClose={handleCloseModal}
             handleCardDelete={handleCardDelete}
             isOpen={activeModal === "delete"}
+            isLoading={isLoading}
+            handleIsLoadingToggle={handleIsLoadingToggle}
           />
         )}
       </CurrentTemperatureUnitContext.Provider>

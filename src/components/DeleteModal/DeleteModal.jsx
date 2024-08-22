@@ -1,7 +1,14 @@
 import "./DeleteModal.css";
 import close from "../../assets/whiteclose.png";
 
-function DeleteModal({ card, onClose, handleCardDelete, isOpen }) {
+function DeleteModal({
+  card,
+  onClose,
+  handleCardDelete,
+  isOpen,
+  isLoading,
+  handleIsLoadingToggle,
+}) {
   const handleOverlay = (e) => {
     if (e.target === e.currentTarget) {
       onClose();
@@ -28,7 +35,12 @@ function DeleteModal({ card, onClose, handleCardDelete, isOpen }) {
         </h2>
         <button
           className="delete__button"
-          onClick={() => handleCardDelete(card)}
+          // onClick={() => handleCardDelete(card)}
+          onClick={() => {
+            handleIsLoadingToggle;
+            handleCardDelete(card);
+          }}
+          buttonText={isLoading ? "Saving..." : "Save"}
         >
           Yes, delete item
         </button>

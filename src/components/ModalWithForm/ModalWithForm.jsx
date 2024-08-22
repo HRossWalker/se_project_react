@@ -10,6 +10,7 @@ function ModalWithForm({
   name,
   onClose,
   isOpen,
+  handleIsLoadingToggle,
 }) {
   const ref = useRef();
 
@@ -35,7 +36,11 @@ function ModalWithForm({
         </button>
         <form action="" onSubmit={onSubmit} className="modal__form">
           {children}
-          <button type="submit" className="modal__submit">
+          <button
+            type="submit"
+            onClick={handleIsLoadingToggle}
+            className="modal__submit"
+          >
             {buttonText}
           </button>
         </form>
