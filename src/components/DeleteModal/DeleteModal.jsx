@@ -40,9 +40,8 @@ function DeleteModal({
             handleIsLoadingToggle;
             handleCardDelete(card);
           }}
-          buttonText={isLoading ? "Saving..." : "Save"}
         >
-          Yes, delete item
+          {isLoading ? "Deleting..." : "Yes, delete item"}
         </button>
         <button className="delete__button-cancel" onClick={onClose}>
           Cancel

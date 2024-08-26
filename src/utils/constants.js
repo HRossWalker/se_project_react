@@ -98,3 +98,40 @@ const date = new Date().toDateString();
 export const currentDate = date.slice(4, 10);
 
 // json-server --watch db.json --id _id --port 3001
+
+// function handleSubmit(request) {
+//   // start loading
+//   setIsLoading(true);
+//   request()
+//     // we need to close only in `then`
+//     .then(handleCloseModal)
+//     // we need to catch possible errors
+//     // console.error is used to handle errors if you don’t have any other ways for that
+//     .catch(console.error)
+//     // and in finally we need to stop loading
+//     .finally(() => setIsLoading(false));
+// }
+
+// // here is an example
+// const handleAddItem = (item) => {
+//   // here we create a function that returns a promise
+//   const makeRequest = () => {
+//     // `return` lets us use a promise chain `then, catch, finally`
+//     return addNewItem(item).then((item) => {
+//       setClothingItems([item, ...clothingItems]);
+//     });
+//   };
+//   // here we call handleSubmit passing the request
+//   handleSubmit(makeRequest);
+// };
+
+//  // here is an example
+//  function handleProfileFormSubmit(inputValues) {
+//   // here we create a function that returns a promise
+//   function makeRequest() {
+//     // `return` lets us use a promise chain `then, catch, finally`
+//     return api.editProfile(inputValues).then(setCurrentUser);
+//   }
+//   // here we call handleSubmit passing the request
+//   handleSubmit(makeRequest);
+// }
